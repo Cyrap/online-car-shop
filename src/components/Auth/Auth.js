@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useUser } from "../../config/UserProvider";
 import { createUserWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import { useFirebase } from "../../config/FirebaseContext";
+import styles from './Auth.module.css'
 const Auth = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState();
@@ -31,25 +32,25 @@ const Auth = () => {
       console.error(err);
     }
   };
-  console.log(user)
+  console.log(user?.uid);
 
   return (
     <div>
       {user ? (
-        <div>
+        <div className={styles.div}>
           <p>Hello, {user.displayName}!</p>
-          <button onClick={logout}>Logout</button>
+          <button className={styles.button} onClick={logout}>Logout</button>
         </div>
       ) : (
-        <div>
-          <input placeholder="Email..." onChange={(e) => setEmail(e.target.value)} />
-          <input
+        <div className={styles.div}>
+          <input className={styles.input} placeholder="Email..." onChange={(e) => setEmail(e.target.value)} />
+          <input className={styles.input}
             placeholder="Password..."
             type="password"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button onClick={signIn}>Sign In</button>
-          <button onClick={signInWithGoogle}>Sign In With Google</button>
+          <button className={styles.button} onClick={signIn}>Sign up</button>
+          <button className={styles.button} onClick={signInWithGoogle}>Sign In With Google</button>
         </div>
       )}
     </div>
