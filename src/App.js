@@ -7,6 +7,7 @@ import Navbar from './components/Navbar/Navbar';
 import {BrowserRouter, Routes, Route} from "react-router-dom"
 import SignIn from './components/SignIn/SignIn';
 import CarRegister from './components/CarRegister/CarRegister';
+import HomePage from './components/HomePage/Homepage';
 function App() {
   return (
     <FirebaseProvider>
@@ -14,6 +15,7 @@ function App() {
         <BrowserRouter>
           <Navbar />
           <CarRegister/>
+          <HomePage/>
           <Routes>
             <Route path="/" element={<Auth />}></Route>
             <Route path="/signIn" element={<SignIn />}></Route>

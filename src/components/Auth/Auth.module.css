@@ -1,22 +1,58 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 91vh;
+    color: aliceblue;
+    background: radial-gradient(
+        113.04% 64.86% at 39.45% -6.02%,
+        rgba(67, 77, 86, 0.8) 0%,
+        rgba(255, 0, 238, 0) 100%
+      ),
+      radial-gradient(
+        85.77% 64.53% at 104.3% 15.51%,
+        rgb(13, 53, 122) 0%,
+        rgba(166, 0, 255, 0) 100%
+      ),
+      radial-gradient(
+        68.68% 59.77% at 50% 131.71%,
+        #4d1a4e 34.7%,
+        rgba(118, 5, 180, 0) 100%
+      ),
+      #110739;
+}
 .div{
-    background: rgb(43, 43, 53);
+    position: relative;
+    bottom: 10%;
+    background: rgba(41, 37, 37, 0.46);
+    padding: 30px;
+    border-radius: 20px;
     color: rgb(232, 227, 227);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 91vh;
 }
 .input{
     width: 30vw;
     padding: 10px;
     margin: 10px;
+    max-width: 400px;
+    min-width: 300px;
+    border-radius: 5px;
 }
 .button{
     background-color: green;
-    color: white;
+    color: rgb(227, 241, 244);
     padding: 10px;
     border-radius: 5px;
     border: none;
     margin: 10px;
+    font-weight: 550;
+    font-size: .85rem;
 }
+.button:hover{
+    background: linear-gradient(150deg,green,darkgreen);
+}
+

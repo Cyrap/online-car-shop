@@ -37,20 +37,23 @@ const Auth = () => {
   return (
     <div>
       {user ? (
-        <div className={styles.div}>
+        <div className={styles.container}>
           <p>Hello, {user.displayName}!</p>
           <button className={styles.button} onClick={logout}>Logout</button>
         </div>
       ) : (
+        <div className={styles.container}>
         <div className={styles.div}>
+          <h3>Sign up</h3>
           <input className={styles.input} placeholder="Email..." onChange={(e) => setEmail(e.target.value)} />
           <input className={styles.input}
             placeholder="Password..."
             type="password"
             onChange={(e) => setPassword(e.target.value)}
-          />
+            />
           <button className={styles.button} onClick={signIn}>Sign up</button>
           <button className={styles.button} onClick={signInWithGoogle}>Sign In With Google</button>
+        </div>
         </div>
       )}
     </div>

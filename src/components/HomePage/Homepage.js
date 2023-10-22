@@ -1,8 +1,10 @@
 import React from "react";
-
+import CarData from "../CarData/CarData";
 const HomePage = ()=>{
+
     return <div>
-        this is home HomePage
+        asdbfa,sdb,
+        <CarData/>
     </div>
 }
 export default HomePage;
