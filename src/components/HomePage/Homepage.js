@@ -3,7 +3,6 @@ import CarData from "../CarData/CarData";
 const HomePage = ()=>{
 
     return <div>
-        asdbfa,sdb,
         <CarData/>
     </div>
 }

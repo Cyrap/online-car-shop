@@ -8,6 +8,7 @@ import { v4 as uuidv4 } from "uuid"; // Import the UUID library
 import style from "./CarRegister.module.css";
 import { updateDoc } from "firebase/firestore";
 import { doc } from "firebase/firestore";
+import styles from './CarRegister.module.css'
 const CarRegister = () => {
   const user = useUser();
   const { db, storage } = useFirebase();
@@ -72,23 +73,19 @@ const CarRegister = () => {
       console.error(err);
     }
   };
-  
-  
-
   return (
-    <div className={style.form}>
-       <input placeholder="Company" type="text" onChange={(e) => setNewCarCompany(e.target.value)} />
-      <input placeholder="Model" type="text" onChange={(e) => setNewCarModel(e.target.value)} />
-      <input placeholder="Color" type="test" onChange={(e) => setNewCarColor(e.target.value)} />
-      <input placeholder="Made Year" type="date" onChange={(e) => setNewCarYear(e.target.value)} />
-      <input placeholder="Date of Entry to Mongolia" type="date" onChange={(e) => setNewCarEntryYear(e.target.value)} />
+    <div className={styles.container}>
+      <div className={styles.form}>
+        <h3>Авто машин бүртгэх</h3>
+       <input className={styles.input} placeholder="Company" type="text" onChange={(e) => setNewCarCompany(e.target.value)} />
+      <input className={styles.input} placeholder="Model" type="text" onChange={(e) => setNewCarModel(e.target.value)} />
+      <input className={styles.input} placeholder="Color" type="test" onChange={(e) => setNewCarColor(e.target.value)} />
+      <input className={styles.input} placeholder="Made Year" type="date" onChange={(e) => setNewCarYear(e.target.value)} />
+      <input className={styles.input} placeholder="Date of Entry to Mongolia" type="date" onChange={(e) => setNewCarEntryYear(e.target.value)} />
       <button className={style.button} onClick={onSubmitCar}>Submit</button>
-
-
-      <button className={style.button} onClick={onSubmitCar}>Submit</button>
-
       <div>
         <input type="file" onChange={(e) => setFileUpload(e.target.files[0])}></input>
+      </div>
       </div>
     </div>
   );

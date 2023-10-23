@@ -1,38 +1,41 @@
 import React, { useEffect, useState } from "react";
 import { useFirebase } from "../../config/FirebaseContext";
-import { collection, getDocs } from "firebase/firestore";
-
+import { collection, deleteDoc, onSnapshot } from "firebase/firestore";
+import { doc } from "firebase/firestore";
+import styles from './CarData.module.css'
 const CarData = () => {
   const { db } = useFirebase();
   const [carList, setCarData] = useState([]);
-
+  const deleteCar = async (id)=>{
+    const carDoc = doc(db,"Cars",id);
+    await deleteDoc(carDoc);
+  }
   const carCollectionRef = collection(db, "Cars");
 
-  const getCarList = async () => {
-    try {
-      const data = await getDocs(carCollectionRef);
-      const filteredData = data.docs.map((doc) => ({
+  useEffect(() => {
+    const unsubscribe = onSnapshot(carCollectionRef, (querySnapshot) => {
+      const data = querySnapshot.docs.map((doc) => ({
         ...doc.data(),
         id: doc.id,
       }));
-      setCarData(filteredData);
-    } catch (err) {
-      console.log(err);
-    }
-  }
+      setCarData(data);
+      console.log(data);
+    });
 
-  useEffect(() => {
-    getCarList();
+    return () => unsubscribe();
   }, []);
 
+
   return (
-    <div>
+    <div className={styles.container}>
       {carList.map((car, index) => (
-        <div key={index}>
+        <div key={index} className={styles.div}>
           <p>Model: {car.model}</p>
           <p>Company: {car.company}</p>
+          <div className={styles.img}>
           <img src={car.imageURL} alt="Car Image" />
-          _____________________________
+          </div>
+          <button className={styles.button}onClick={() => deleteCar(car.id)}>delete</button>
         </div>
       ))}
     </div>

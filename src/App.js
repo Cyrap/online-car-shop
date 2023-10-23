@@ -8,16 +8,17 @@ import {BrowserRouter, Routes, Route} from "react-router-dom"
 import SignIn from './components/SignIn/SignIn';
 import CarRegister from './components/CarRegister/CarRegister';
 import HomePage from './components/HomePage/Homepage';
+// import SvgComponent from './SvgComponent'
 function App() {
   return (
+    // <SvgComponent/>
     <FirebaseProvider>
       <UserProvider>
         <BrowserRouter>
           <Navbar />
-          <CarRegister/>
-          <HomePage/>
           <Routes>
-            <Route path="/" element={<Auth />}></Route>
+          <Route path="/" element={<div><Auth /><HomePage /></div>} />
+            <Route path="/register" element={<CarRegister/>}></Route>
             <Route path="/signIn" element={<SignIn />}></Route>
           </Routes>
         </BrowserRouter>

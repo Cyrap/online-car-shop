@@ -19,7 +19,8 @@ const SignIn = () => {
    return <div>{user.displayName} login success</div>
   }else{
       return (
-          <div className={styles.div}>
+          <div className={styles.container}>
+            <div className={styles.form}> 
             <h3>Login</h3>
       <input
         className={styles.input}
@@ -39,6 +40,7 @@ const SignIn = () => {
       onClick={logIn}
       className={styles.button}
       >Log in</button>
+        </div>
     </div>
   );
     }
