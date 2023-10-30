@@ -20,7 +20,10 @@ const Navbar = () => {
   if (!user) {
     return <div className={styles.container}>
     <button className={styles.button}><Link className={styles.link} to="/">Home</Link></button>
-    <button className={styles.button}><Link className={styles.link} to="/signIn">Sign In</Link></button>
+    <div>
+    <button className={styles.button}><Link className={styles.link} to="/signUp">Бүртгүүлэх</Link></button>
+    <button className={styles.button}><Link className={styles.link} to="/signIn">Нэвтрэх</Link></button>
+    </div>
     </div>
 
   }else{

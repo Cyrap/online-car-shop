@@ -1,7 +1,7 @@
 .container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
     height: 100%;
     color: aliceblue;
     background: radial-gradient(
@@ -73,4 +73,4 @@
     height: 100%;
     object-fit: cover;
   }
-  
+
