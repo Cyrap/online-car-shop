@@ -6,7 +6,7 @@ import styles from './Auth.module.css'
 const Auth = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState();
-  const user = useUser(); // Access the current user from the UserContext
+  const user = useUser();
   const {auth} = useFirebase();
   const {googleProvider} = useFirebase();
   const signIn = async () => {
