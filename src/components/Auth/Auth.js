@@ -37,11 +37,10 @@ const Auth = () => {
   return (
     <div>
       {user ? (
-        <div></div>
-        // <div className={styles.container}>
-        //   <p>Hello, {user.displayName}!</p>
-        //   <button className={styles.button} onClick={logout}>Logout</button>
-        // </div>
+        <div className={styles.container}>
+          <p>Hello, {user.displayName}!</p>
+          <button className={styles.button} onClick={logout}>Logout</button>
+        </div>
       ) : (
         <div className={styles.container}>
         <div className={styles.div}>

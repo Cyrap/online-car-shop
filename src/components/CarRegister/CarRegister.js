@@ -12,16 +12,16 @@ import styles from './CarRegister.module.css'
 const CarRegister = () => {
   const user = useUser();
   const { db, storage } = useFirebase();
-  console.log(user?.uid);
   const [newCarCompany, setNewCarCompany] = useState("");
   const [newCarModel, setNewCarModel] = useState("");
   const [newCarColor, setNewCarColor] = useState("");
-  const [newCarYear, setNewCarYear] = useState(null); // Initialize as null
-  const [newCarEntryYear, setNewCarEntryYear] = useState(null); // Initialize as null
+  const [newCarYear, setNewCarYear] = useState(null);
+  const [newCarEntryYear, setNewCarEntryYear] = useState(null);
 
+  const handleSelectedChange = (e) =>{
+    setNewCarModel(e.target.value);
+  }
   const movieCollectionRef = collection(db, "Cars");
-
-  // file upload state
   const [fileUpload, setFileUpload] = useState(null);
   const onSubmitCar = async () => {
     try {
@@ -36,7 +36,6 @@ const CarRegister = () => {
         entryYear: entryYearTimestamp,
         OwnerID: user.uid,
       };
-  
       const carRef = await addDoc(movieCollectionRef, carData);
   
       const imageUUID = uuidv4();
@@ -47,27 +46,19 @@ const CarRegister = () => {
         const uploadImagePromise = uploadBytes(fileFolderRef, fileUpload)
           .then(() => getDownloadURL(fileFolderRef))
           .then((imageURL) => {
-            // Update the car data with the retrieved image URL
             carData.imageURL = imageURL;
           });
-  
-        // Wait for both image upload and update to complete
         await Promise.all([uploadImagePromise]);
-  
-        // Update the car data in Firestore with the image URL
         await updateDoc(doc(db, "Cars", carRef.id), {
           imageURL: carData.imageURL,
         });
       }
-  
-      // Reset form fields and fileUpload state
       setNewCarCompany("");
       setNewCarModel("");
       setNewCarColor("");
       setNewCarYear(null);
       setNewCarEntryYear(null);
-      setFileUpload(null);
-  
+      setFileUpload(null)
       console.log("Car data and image added successfully");
     } catch (err) {
       console.error(err);
@@ -78,7 +69,11 @@ const CarRegister = () => {
       <div className={styles.form}>
         <h3>Авто машин бүртгэх</h3>
        <input className={styles.input} placeholder="Company" type="text" onChange={(e) => setNewCarCompany(e.target.value)} />
-      <input className={styles.input} placeholder="Model" type="text" onChange={(e) => setNewCarModel(e.target.value)} />
+      <select className={styles.input} placeholder="Model" value={newCarModel} onChange={handleSelectedChange}>
+        <option value={"Toyota"}>Toyota</option>
+        <option value={"BMW"}>BMW</option>
+        <option value={"Benz"}>Benz</option>
+      </select>
       <input className={styles.input} placeholder="Color" type="test" onChange={(e) => setNewCarColor(e.target.value)} />
       <input className={styles.input} placeholder="Made Year" type="date" onChange={(e) => setNewCarYear(e.target.value)} />
       <input className={styles.input} placeholder="Date of Entry to Mongolia" type="date" onChange={(e) => setNewCarEntryYear(e.target.value)} />

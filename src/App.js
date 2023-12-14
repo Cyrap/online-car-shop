@@ -8,6 +8,7 @@ import {BrowserRouter, Routes, Route} from "react-router-dom"
 import SignIn from './components/SignIn/SignIn';
 import CarRegister from './components/CarRegister/CarRegister';
 import HomePage from './components/HomePage/Homepage';
+import List from './components/List/List'
 // import SvgComponent from './SvgComponent'
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
     <FirebaseProvider>
       <UserProvider>
         <BrowserRouter>
+        <List/>
           <Navbar />
           <Routes>
           <Route path="/" element={<div><HomePage /></div>} />
