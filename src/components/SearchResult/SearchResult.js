@@ -37,7 +37,6 @@ const SearchResult = () => {
             <div className={styles.img}>
             <img src={car.imageURL} alt="Car Image" />
             </div>
-            <button className={styles.button}onClick={() => deleteCar(car.id)}>delete</button>
           </div>
         ))}
       </div>
