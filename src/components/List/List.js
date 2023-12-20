@@ -1,36 +1,49 @@
-import React, { useState } from "react";
-import { useUser } from "../../config/UserProvider";
-import {collection, doc, getDocs, query, where } from "firebase/firestore";
-import { getDoc} from "firebase/firestore";
+import React, { useState, useEffect } from "react";
 import { useFirebase } from "../../config/FirebaseContext";
-const List = () =>{
-    // const user = useUser();
-    const {db} = useFirebase();
+import { collection, getDocs } from "firebase/firestore";
+import { Link } from "react-router-dom"; // Import Link
+import styles from "./List.module.css";
+
+const List = () => {
+    const { db } = useFirebase();
     const [modelData, setModelData] = useState([]);
-    const dataRef = collection(db,"Cars");
+    const dataRef = collection(db, "Cars");
 
-
-    const filteredModes = async () =>{
-            try{
-            const data = await getDocs(dataRef);
-            const filteredData = data.docs.map((doc)=>({...doc.data()}));
-            setModelData(filteredData);
-            console.log(filteredData);
-            }catch(err){
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const data = await getDocs(dataRef);
+                const filteredData = data.docs.map((doc) => ({ ...doc.data() }));
+                setModelData(filteredData);
+            } catch (err) {
                 console.log(err);
             }
-    };
+        };
 
-    filteredModes();
-    return(
+        fetchData();
+    }, []);
+
+
+    return (
         <>
-        <div>
-            <div>
-                here is list table
-                {modelData.map((model)=>{model})}
+            <div className={styles.container}>
+                <div className={styles.child}>
+                    {modelData.map((model, index) => (
+                        <Link
+                            to={`/search-results/${model.model}`} 
+                            key={index}
+                            style={{
+                                height: "110%"
+                            }}
+                            className={styles.button}
+                        >
+                            {model.model}
+                        </Link>
+                    ))}
+                </div>
             </div>
-        </div>
         </>
-    )
-}
+    );
+};
+
 export default List;

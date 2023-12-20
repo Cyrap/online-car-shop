@@ -19,8 +19,8 @@ const CarData = () => {
         id: doc.id,
       }));
       setCarData(data);
-      data.map((e)=>{
-        console.log(e.id);
+      data.map((car)=>{
+        console.log(car.color);
       });
     });
 
@@ -31,11 +31,11 @@ const CarData = () => {
   return (
     <div className={styles.container}>
       {carList.map((car, index) => (
-        <div key={index} className={styles.div}>
+        <div key={index} className={styles.div} style={{background: car.color}}>
           <p>Model: {car.model}</p>
           <p>Company: {car.company}</p>
           <div className={styles.img}>
-          <img src={car.imageURL} alt="Car Image" />
+          <img loading="lazy" src={car.imageURL} alt="Car Image" />
           </div>
           <button className={styles.button}onClick={() => deleteCar(car.id)}>delete</button>
         </div>

@@ -1,20 +1,6 @@
 .container{
-    /* background:  radial-gradient(
-        113.04% 64.86% at 39.45% -6.02%,
-        rgb(3, 28, 34) 0%,
-        rgba(203, 175, 11, 0) 100%
-      ),
-      radial-gradient(
-        85.77% 64.53% at 104.3% 15.51%,
-        rgb(13, 65, 134) 0%,
-        rgba(172, 172, 19, 0) 100%
-      ),
-      radial-gradient(
-        68.68% 59.77% at 50% 131.71%,
-        #000000 34.7%,
-        rgba(118, 5, 180, 0) 100%
-      ),
-      #060d15b1;; */
+  position: sticky;
+  top: 0;
     color: white;
     background: rgb(21, 21, 22);
     height: 70px;
