@@ -19,9 +19,6 @@ const CarData = () => {
         id: doc.id,
       }));
       setCarData(data);
-      data.map((car)=>{
-        console.log(car.color);
-      });
     });
 
     return () => unsubscribe();

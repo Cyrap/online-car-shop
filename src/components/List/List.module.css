@@ -25,7 +25,8 @@ ul{
   appearance: none;
   background-color: #FAFBFC;
   border: 1px solid rgba(27, 31, 35, 0.15);
-  border-radius: 6px;
+  width: 100%;
+  text-align: center;
   box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
   box-sizing: border-box;
   color: #24292E;
@@ -45,10 +46,12 @@ ul{
   vertical-align: middle;
   white-space: nowrap;
   word-wrap: break-word;
+  border-bottom:  3px #24292E solid;
+  text-decoration: none;
 }
 
 .button:hover {
-  background-color: #F3F4F6;
+  background-color: #b8c8e8;
   text-decoration: none;
   transition-duration: 0.1s;
 }

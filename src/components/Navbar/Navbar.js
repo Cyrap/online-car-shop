@@ -2,17 +2,18 @@ import React from "react";
 import { useUser } from "../../config/UserProvider";
 import { signOut } from "firebase/auth";
 import { useFirebase} from '../../config/FirebaseContext'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import styles from './Navbar.module.css'
 const Navbar = () => {
   const user = useUser();
-  const {auth} = useFirebase()
-  
-
+  const {auth} = useFirebase();
+  const navigate = useNavigate();
   const userPhotoURL = user?.photoURL;
+
   const logout = async () => {
     try {
       await signOut(auth);
+      navigate("./");
     } catch (err) {
       console.error(err);
     }
