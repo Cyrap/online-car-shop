@@ -28,13 +28,13 @@ const CarData = () => {
   return (
     <div className={styles.container}>
       {carList.map((car, index) => (
-        <div key={index} className={styles.div} style={{background: car.color}}>
-          <p>Model: {car.model}</p>
-          <p>Company: {car.company}</p>
+        <div key={index} className={styles.div}>
           <div className={styles.img}>
           <img loading="lazy" src={car.imageURL} alt="Car Image" />
           </div>
-          <button className={styles.button}onClick={() => deleteCar(car.id)}>delete</button>
+          <p>Model: {car.model}</p>
+          <p>Company: {car.company}</p>
+          {/* <button className={styles.button}onClick={() => deleteCar(car.id)}>delete</button> */}
         </div>
       ))}
     </div>

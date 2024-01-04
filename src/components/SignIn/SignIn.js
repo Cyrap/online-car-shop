@@ -11,35 +11,36 @@ const SignIn = () => {
   const logIn = async () => {
     try{
         await signInWithEmailAndPassword(auth,username,password);
+        alert("login successfully");
     } catch(err){
-        console.error(err)
+        alert(err);
     }
   };
   if(user){
-   return <div>{user.displayName} login success</div>
+   return <div>{user.displayName} Амжилттай нэвтэрлээ</div>
   }else{
       return (
           <div className={styles.container}>
             <div className={styles.form}> 
-            <h3>Login</h3>
+            <h3 className={styles.header}>Нэвтрэх</h3>
       <input
         className={styles.input}
         type="text"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
-        placeholder="Username"
+        placeholder="Нэвтрэх нэр"
         />
       <input
        className={styles.input}
         type="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-        placeholder="Password"
+        placeholder="Нууц үг"
         />
       <button 
       onClick={logIn}
       className={styles.button}
-      >Log in</button>
+      >Нэвтрэх</button>
         </div>
     </div>
   );

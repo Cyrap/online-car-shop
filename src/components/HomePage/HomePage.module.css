@@ -1,4 +1,53 @@
-.container{
+.wrapper{
+    height: 100vh;
+    overflow-y:auto ;
+    overflow-x: hidden;
+    perspective: 10px;
+}
+.container {
     display: flex;
     flex-direction: row;
+    background: red;
+    min-height: 100%;
+}
+.header{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    transform-style: preserve-3d;
+    z-index: -1;
+}
+
+.image3{
+    transform: translateZ(-10px) scale(2);
+}
+.image2{
+    transform: translateZ(-5px) scale(1.5);
+}
+.image1{
+    transform: translateZ(-2px) scale(1.2);
+}
+.image1,
+.image2,
+.image3{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+
+}
+.title{
+    color: white;
+    font-size: 6rem;
+    text-shadow: 0px 0px 25px black;
+    position: relative;
+    top: -150px;
+}
+
+@media (max-width: 360px){
+    .title{
+        font-size: 3rem;
+    }
 }

@@ -29,17 +29,15 @@ const Navbar = () => {
 
   }else{
       return (
-          <div className={styles.container}>
-            <button className={styles.button}><Link className={styles.link} to="/">Home</Link></button>
-      {/* <p>Hello, {user.displayName}!</p> */}
+      <div className={styles.container}>
+      <button className={styles.button}><Link className={styles.link} to="/">Home</Link></button>
       <div className={styles.userMenu}>
       <button className={styles.button}><Link className={styles.link} to="/register">Register a car</Link></button>
       <div className={styles.img}  onClick={logout}>
       <img  src={userPhotoURL}></img>
       </div>
-      {/* <button onClick={logout}>Log out</button> */}
       </div>
-    </div>
+      </div>
   );
 }
 };
