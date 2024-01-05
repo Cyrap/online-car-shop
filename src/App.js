@@ -15,7 +15,7 @@ function App() {
     <FirebaseProvider>
       <UserProvider>
         <BrowserRouter>
-      {/* <SvgComponent/> */}
+      <SvgComponent/>
           <Navbar />
           <Routes>
           <Route path="/" element={<div><HomePage /></div>} />
