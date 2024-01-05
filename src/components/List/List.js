@@ -3,11 +3,15 @@ import { useFirebase } from "../../config/FirebaseContext";
 import { collection, getDocs } from "firebase/firestore";
 import { Link } from "react-router-dom";
 import styles from "./List.module.css";
-
 const List = () => {
     const { db } = useFirebase();
     const [modelData, setModelData] = useState([]);
     const dataRef = collection(db, "Cars");
+    const [isSidebarVisible, setSidebarVisible] = useState(false);
+
+    const toggleButton = () =>{
+        setSidebarVisible(!isSidebarVisible);
+    }
 
     useEffect(() => {
         const fetchData = async () => {
@@ -33,22 +37,34 @@ const List = () => {
     };
 
     return (
-        <div className={styles.container}>
-            <div className={styles.child}>
-                {modelData.map((item, index) => (
-                    <Link
-                        to={`/search-results/${item.model}`}
-                        key={index}
-                        style={{
-                            height: "110%",
-                        }}
-                        className={styles.button}
-                    >
-                        {`${item.model} [${item.count}]`}
-                    </Link>
-                ))}
+        <div className={styles.parent}>
+
+    <div className={styles.wrapper} style={{width:isSidebarVisible ? "100vw" : 0}}>
+  
+       {isSidebarVisible && (
+           <div className={styles.container}>
+         <div className={styles.child}>
+             {modelData.map((item, index) => (
+                 <Link
+                 to={`/search-results/${item.model}`}
+                 key={index}
+                 className={styles.button}
+                 >
+                     {`${item.model} [${item.count}]`}
+                 </Link>
+             ))}
+         </div>
+     </div>
+       )}
+       
+
+        <div className={styles.toggleButton}>
+           <div className={styles.buttonContainer}>
+               <button className={styles.primeButton} onClick={()=>{toggleButton()}}> {isSidebarVisible ? "<" : ">"}</button>
             </div>
-        </div>
+       </div>
+    </div>
+       </div>
     );
 };
 

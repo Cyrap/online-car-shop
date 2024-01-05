@@ -28,7 +28,6 @@ const SearchResult = () => {
     return (
         <>
         <div style={{display:"flex",flexDirection:"row"}}>
-        <List/>
         <div className={styles.container}>
         {searchResults.map((car, index) => (
             <div key={index} className={styles.div} style={{background: car.color}}>

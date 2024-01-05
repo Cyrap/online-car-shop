@@ -1,6 +1,5 @@
 import React from "react";
 import CarData from "../CarData/CarData";
-import List from "../List/List";
 import styles from "./HomePage.module.css";
 import image1 from "../../img/img1.png"
 import image2 from "../../img/img2.png"
@@ -16,7 +15,6 @@ const HomePage = () => {
     </div>
 
     <div className={styles.container}>
-      <List/>
         <CarData/>
     </div>
     </div>

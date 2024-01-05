@@ -9,6 +9,7 @@ const Navbar = () => {
   const {auth} = useFirebase();
   const navigate = useNavigate();
   const userPhotoURL = user?.photoURL;
+  const logoPath = process.env.PUBLIC_URL + '/logov1.png';
 
   const logout = async () => {
     try {
@@ -20,7 +21,10 @@ const Navbar = () => {
   };
   if (!user) {
     return <div className={styles.container}>
-    <button className={styles.button}><Link className={styles.link} to="/">Home</Link></button>
+    <button className={styles.button}><Link className={styles.link} to="/">  
+     <div className={styles.img}>
+      <img  src={logoPath}></img>
+      </div></Link></button>
     <div>
     <button className={styles.button}><Link className={styles.link} to="/signUp">Бүртгүүлэх</Link></button>
     <button className={styles.button}><Link className={styles.link} to="/signIn">Нэвтрэх</Link></button>
