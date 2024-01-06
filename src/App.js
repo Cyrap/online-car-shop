@@ -9,14 +9,15 @@ import SignIn from './components/SignIn/SignIn';
 import CarRegister from './components/CarRegister/CarRegister';
 import HomePage from './components/HomePage/Homepage';
 import SearchResult from "./components/SearchResult/SearchResult";
-import List from './components/List/List';
+import Footer from './components/Footer/Footer';
+import SideBar from './components/SideBar/SideBar';
 // import SvgComponent from './SvgComponent'
 function App() {
   return (
     <FirebaseProvider>
       <UserProvider>
         <BrowserRouter>
-        <List/>
+        <SideBar/>
           <Navbar />
           <Routes>
           <Route path="/" element={<div><HomePage /></div>} />
@@ -25,6 +26,7 @@ function App() {
             <Route path="/signUp" element={<Auth />}></Route>
             <Route path="/search-results/:model" element={<SearchResult/>} />
           </Routes>
+          <Footer/>
         </BrowserRouter>
       </UserProvider>
     </FirebaseProvider>

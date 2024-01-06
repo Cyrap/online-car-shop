@@ -1,15 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { useUser } from "../../config/UserProvider";
 import { signOut } from "firebase/auth";
-import { useFirebase} from '../../config/FirebaseContext'
-import {Link, useNavigate} from 'react-router-dom'
+import { useFirebase } from '../../config/FirebaseContext'
+import { Link, useNavigate } from 'react-router-dom'
 import styles from './Navbar.module.css'
+
 const Navbar = () => {
   const user = useUser();
-  const {auth} = useFirebase();
+  const { auth } = useFirebase();
   const navigate = useNavigate();
   const userPhotoURL = user?.photoURL;
   const logoPath = process.env.PUBLIC_URL + '/logov1.png';
+  const [isDropdownClicked, setDropDownClicked] = useState(false);
+
+  const toggleDropdown = () => {
+    setDropDownClicked(!isDropdownClicked);
+  }
 
   const logout = async () => {
     try {
@@ -32,17 +38,30 @@ const Navbar = () => {
     </div>
 
   }else{
-      return (
+    return (
       <div className={styles.container}>
-      <button className={styles.button}><Link className={styles.link} to="/">Home</Link></button>
-      <div className={styles.userMenu}>
-      <button className={styles.button}><Link className={styles.link} to="/register">Register a car</Link></button>
-      <div className={styles.img}  onClick={logout}>
-      <img  src={userPhotoURL}></img>
+        <button className={styles.button}>
+          <Link className={styles.link} to="/">
+            <div className={styles.img}>
+              <img src={logoPath} alt=""></img>
+            </div>
+          </Link>
+        </button>
+        <div className={styles.userMenu}>
+          <button className={styles.button}><Link className={styles.link} to="/register">Register a car</Link></button>
+          <div className={styles.img} onClick={toggleDropdown}>
+            <img src={userPhotoURL} alt="" className={styles.userImg}></img>
+            {isDropdownClicked && (
+              <div className={styles.dropdownContent} onClick={logout}>
+                Logout
+              </div>
+            )}
+          </div>
+        </div>
       </div>
-      </div>
-      </div>
-  );
-}
+    );
+  }
+ 
 };
+
 export default Navbar;

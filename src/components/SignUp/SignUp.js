@@ -1,17 +1,21 @@
 import React, { useState } from "react";
 import { useUser } from "../../config/UserProvider";
-import { createUserWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { useFirebase } from "../../config/FirebaseContext";
 import styles from './SignUp.module.css'
+import { useNavigate } from "react-router-dom";
 const Auth = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState();
   const user = useUser();
   const {auth} = useFirebase();
   const {googleProvider} = useFirebase();
+  const navigate = useNavigate();
   const signIn = async () => {
     try {
       await createUserWithEmailAndPassword(auth,email, password);
+      navigate("./");
+      alert("navigate")
     } catch (err) {
       console.error(err);
     }
@@ -20,22 +24,21 @@ const Auth = () => {
   const signInWithGoogle = async () => {
     try {
       signInWithPopup(auth, googleProvider);
+      navigate("./");
+      alert("navigate")
     } catch (err) {
       console.error(err);
     }
   };
 
-  const logout = async () => {
-    try {
-      await signOut(auth);
-    } catch (err) {
-      console.error(err);
-    }
-  };
   console.log(user?.uid);
 
-  return (
-    <div>
+  if(user){
+    return <></>
+  }else{
+
+    return (
+      <div>
         <div className={styles.container}>
         <div className={styles.div}>
           <h3>Бүртгүүлэх</h3>
@@ -51,6 +54,7 @@ const Auth = () => {
         </div>
     </div>
   );
+}
 };
 
 export default Auth;

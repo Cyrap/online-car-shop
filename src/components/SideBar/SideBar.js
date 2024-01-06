@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useFirebase } from "../../config/FirebaseContext";
 import { collection, getDocs } from "firebase/firestore";
 import { Link } from "react-router-dom";
-import styles from "./List.module.css";
-const List = () => {
+import styles from "./SideBar.module.css";
+const SideBar = () => {
     const { db } = useFirebase();
     const [modelData, setModelData] = useState([]);
     const dataRef = collection(db, "Cars");
@@ -37,35 +37,40 @@ const List = () => {
     };
 
     return (
-        <div className={styles.parent}>
-
-    <div className={styles.wrapper} style={{width:isSidebarVisible ? "100vw" : 0}}>
-  
+    <div className={styles.parent}>
+      <div className={styles.wrapper} style={{width:isSidebarVisible ? "100vw" : 0}}>
+     
        {isSidebarVisible && (
+        <>
+          <div className={styles.closeModal} onClick={(e) => { e.stopPropagation(); toggleButton(); }}></div>
+
            <div className={styles.container}>
-         <div className={styles.child}>
+                 <div className={styles.child}>
              {modelData.map((item, index) => (
                  <Link
+                 onClick={()=>{toggleButton()}}
                  to={`/search-results/${item.model}`}
                  key={index}
                  className={styles.button}
                  >
-                     {`${item.model} [${item.count}]`}
+                   <span className={styles.item}>
+                       {`${item.model}`}<span className={styles.counter}>{item.count}</span>
+                    </span>
+                    
                  </Link>
              ))}
          </div>
      </div>
+             </>
        )}
-       
-
-        <div className={styles.toggleButton}>
-           <div className={styles.buttonContainer}>
+       {!isSidebarVisible &&  <div className={styles.toggleButton}>
+           <div className={styles.buttonContainer} onClick={()=>{toggleButton()}}>
                <button className={styles.primeButton} onClick={()=>{toggleButton()}}> {isSidebarVisible ? "<" : ">"}</button>
             </div>
-       </div>
+       </div>}
     </div>
        </div>
     );
 };
 
-export default List;
+export default SideBar;

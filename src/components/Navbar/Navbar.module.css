@@ -26,7 +26,6 @@
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
-    overflow: hidden;
   }
   
 .img img {
@@ -39,6 +38,23 @@
     align-items: center;
 }
 
+.dropdownContent {
+    position: relative;
+    left: -30px;
+    top: 10px;
+    background: rgba(215, 215, 226, 0.9);
+    border-radius: 5px;
+    text-align: center;
+    padding: 10px;
+    width: fit-content;
+    color: black;
+    cursor: pointer;
+  }
+  .dropdownContent:hover{
+    background: red;
+    color: white;
+  }
+  
 @media (max-width: 500px) {
     .link{    
         margin: 0;

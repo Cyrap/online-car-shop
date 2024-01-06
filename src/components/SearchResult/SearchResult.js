@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useFirebase } from "../../config/FirebaseContext";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { useParams } from "react-router-dom";
-import List from "../List/List";
 import styles from "./SearchResult.module.css"
 const SearchResult = () => {
     const { db } = useFirebase();
@@ -30,13 +29,15 @@ const SearchResult = () => {
         <div style={{display:"flex",flexDirection:"row"}}>
         <div className={styles.container}>
         {searchResults.map((car, index) => (
-            <div key={index} className={styles.div} style={{background: car.color}}>
-            <p>Model: {car.model}</p>
-            <p>Company: {car.company}</p>
-            <div className={styles.img}>
-            <img src={car.imageURL} alt="Car Image" />
-            </div>
-          </div>
+               <div className={styles.container}>
+                  <div key={index} className={styles.div}>
+                   <div className={styles.img}>
+                   <img loading="lazy" src={car.imageURL} alt=""/>
+                   </div>
+                   <p>Model: {car.model}</p>
+                   <p>Company: {car.company}</p>
+                 </div>
+             </div>
         ))}
       </div>
         </div>
