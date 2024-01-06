@@ -7,6 +7,7 @@
     z-index: 999;
 }
 
+
 .wrapper {
   position: relative;
   background: rgba(39, 39, 48, 0.654);
@@ -21,10 +22,11 @@
 
 .container {
   background: rgba(143, 150, 143, 0.944);
-  max-width: 400px;
+  max-width: 600px;
   width: 50vw;
   height: 100vh;
   transition: width 1s ease-in-out; 
+  overflow-y: auto;
 }
 
 .toggleButton {
@@ -38,11 +40,14 @@
     justify-content: center;
 }
 .primeButton{
-    background: rgb(134, 114, 114);
-    border: none;
-    height: 60px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
+    background: rgb(51, 50, 50);
+    color: gray;
+    font-weight: 900;
+    height: 10vh;
+    width: 36px;
+    font-size: 1.5rem;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 .child{
   display: flex;
@@ -82,4 +87,9 @@
   border-radius: 5px;
   display: flex;
   align-items: center;
+}
+@media (max-width:450px){
+  .container{
+    width: 60vw;
+  }
 }

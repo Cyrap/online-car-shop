@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import { useUser } from "../../config/UserProvider";
-import { signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { useFirebase } from "../../config/FirebaseContext";
 import styles from "./SignIn.module.css"
+import { useNavigate } from "react-router-dom";
 const SignIn = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const {auth} = useFirebase();
   const user = useUser();
+  const {googleProvider} = useFirebase();
+  const navigate = useNavigate();
   const logIn = async () => {
     try{
         await signInWithEmailAndPassword(auth,username,password);
@@ -16,31 +19,34 @@ const SignIn = () => {
         alert(err);
     }
   };
+  
+  const signInWithGoogle = async () => {
+    try {
+      signInWithPopup(auth, googleProvider);
+      navigate("./");
+      alert("navigate")
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   if(user){
    return <div>{user.displayName} Амжилттай нэвтэрлээ</div>
   }else{
       return (
-          <div className={styles.container}>
-            <div className={styles.form}> 
-            <h3 className={styles.header}>Нэвтрэх</h3>
-      <input
-        className={styles.input}
-        type="text"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-        placeholder="Нэвтрэх нэр"
-        />
-      <input
-       className={styles.input}
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        placeholder="Нууц үг"
-        />
-      <button 
-      onClick={logIn}
-      className={styles.button}
-      >Нэвтрэх</button>
+        <div>
+        <div className={styles.container}>
+        <div className={styles.div}>
+          <h3>Нэвтрэх</h3>
+          <input className={styles.input} placeholder="Email" onChange={(e) => setUsername(e.target.value)} />
+          <input className={styles.input}
+            placeholder="Нууц үг"
+            type="password"
+            onChange={(e) => setPassword(e.target.value)}
+            />
+          <button className={styles.button} onClick={logIn}>Нэвтрэх</button>
+          <button className={styles.button} onClick={signInWithGoogle}>Google account</button>
+        </div>
         </div>
     </div>
   );

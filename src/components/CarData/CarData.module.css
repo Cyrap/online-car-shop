@@ -5,24 +5,7 @@
   height: inherit;
   width: 100%;
   color: aliceblue;
-  background: radial-gradient(
-    113.04% 64.86% at 39.45% -6.02%,
-    rgba(54, 54, 54) 0%,
-    rgba(255, 0, 238, 0) 100%
-  ),
-  radial-gradient(
-    85.77% 64.53% at 104.3% 15.51%,
-    rgb(20, 20, 20) 0%,
-    rgba(166, 0, 255, 0) 100%
-  ),
-  radial-gradient(
-    68.68% 59.77% at 50% 131.71%,
-    #262628 34.7%,
-    rgba(118, 5, 180, 0) 100%
-  ),
-  #2a292d;
-  padding: 30px;
-  min-height: 91vh;
+  background: rgb(51, 50, 50);
 }
 
 
