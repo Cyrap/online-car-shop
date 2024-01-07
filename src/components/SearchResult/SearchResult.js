@@ -6,8 +6,8 @@ import styles from "./SearchResult.module.css"
 const SearchResult = () => {
     const { db } = useFirebase();
     const [searchResults, setSearchResults] = useState([]);
-    const { model } = useParams();
-
+    const {model} = useParams();
+    console.log(model);
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -23,16 +23,16 @@ const SearchResult = () => {
 
         fetchData();
     }, [model, db]);
-
-    return (
-        <>
-        <div style={{display:"flex",flexDirection:"row"}}>
-        <div className={styles.container}>
+    if(searchResults.length > 0){
+        return (
+            <>
+        <div>
+        <div>
         {searchResults.map((car, index) => (
-               <div className={styles.container}>
-                  <div key={index} className={styles.div}>
-                   <div className={styles.img}>
-                   <img loading="lazy" src={car.imageURL} alt=""/>
+            <div>
+                  <div key={index}>
+                   <div>
+                   {/* <img loading="lazy" src={car.imageURL} alt=""/> */}
                    </div>
                    <p>Model: {car.model}</p>
                    <p>Company: {car.company}</p>
@@ -43,6 +43,11 @@ const SearchResult = () => {
         </div>
         </>
     );
+    }else{
+        return<div>
+            there is no car known as {model}
+        </div>
+    }
 };
 
 export default SearchResult;

@@ -66,7 +66,7 @@ const CarRegister = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.form}>
+      <div className={styles.div}>
         <h3>Авто машин бүртгэх</h3>
         <input className={styles.input} placeholder="Company" type="text" value={newCarCompany} onChange={(e) => setNewCarCompany(e.target.value)} />
         <select className={styles.input} placeholder="Model" value={newCarModel} onChange={handleSelectedChange}>
@@ -78,7 +78,7 @@ const CarRegister = () => {
         <input className={styles.input} placeholder="Made Year" type="date" value={newCarYear} onChange={(e) => setNewCarYear(e.target.value)} />
         <input className={styles.input} placeholder="Date of Entry to Mongolia" type="date" value={newCarEntryYear} onChange={(e) => setNewCarEntryYear(e.target.value)} />
         <button className={styles.button} onClick={onSubmitCar}>Submit</button>
-        <div>
+        <div className={styles.input}>
           <input type="file" onChange={(e) => setFileUpload(e.target.files[0])}></input>
         </div>
       </div>

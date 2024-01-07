@@ -4,7 +4,7 @@ import { signOut } from "firebase/auth";
 import { useFirebase } from '../../config/FirebaseContext'
 import { Link, useNavigate } from 'react-router-dom'
 import styles from './Navbar.module.css'
-
+import Search from "../Search/Search";
 const Navbar = () => {
   const user = useUser();
   const { auth } = useFirebase();
@@ -27,10 +27,16 @@ const Navbar = () => {
   };
   if (!user) {
     return <div className={styles.container}>
-    <button className={styles.button}><Link className={styles.link} to="/">  
-     <div className={styles.img}>
+     <button className={styles.button}>
+      <Link className={styles.link} to="/">  
+     < div className={styles.img}>
       <img  src={logoPath}></img>
-      </div></Link></button>
+      </div>
+      </Link>
+      </button>
+
+      <Search/>
+
     <div>
     <button className={styles.button}><Link className={styles.link} to="/signUp">Бүртгүүлэх</Link></button>
     <button className={styles.button}><Link className={styles.link} to="/signIn">Нэвтрэх</Link></button>
@@ -47,10 +53,12 @@ const Navbar = () => {
             </div>
           </Link>
         </button>
+
+        <Search/>
         <div className={styles.userMenu}>
           <button className={styles.button}><Link className={styles.link} to="/register">Register a car</Link></button>
           <div className={styles.img} onClick={toggleDropdown}>
-            <img src={userPhotoURL} alt="" className={styles.userImg}></img>
+            <img src={userPhotoURL} alt="" className={styles.img}></img>
             {isDropdownClicked && (
               <div className={styles.dropdownContent} onClick={logout}>
                 Logout

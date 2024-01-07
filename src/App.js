@@ -8,19 +8,20 @@ import {BrowserRouter, Routes, Route} from "react-router-dom"
 import SignIn from './components/SignIn/SignIn';
 import CarRegister from './components/CarRegister/CarRegister';
 import HomePage from './components/HomePage/Homepage';
-import SearchResult from "./components/SearchResult/SearchResult";
 import Footer from './components/Footer/Footer';
 import SideBar from './components/SideBar/SideBar';
+import SearchResult from './components/SearchResult/SearchResult';
 // import SvgComponent from './SvgComponent'
 function App() {
   return (
     <FirebaseProvider>
       <UserProvider>
         <BrowserRouter>
-        <SideBar/>
           <Navbar />
+        <SideBar/>
           <Routes>
           <Route path="/" element={<div><HomePage /></div>} />
+          <Route path='/searchResult/:model' element={<SearchResult/>}></Route>
             <Route path="/register" element={<CarRegister/>}></Route>
             <Route path="/signIn" element={<SignIn />}></Route>
             <Route path="/signUp" element={<Auth />}></Route>
