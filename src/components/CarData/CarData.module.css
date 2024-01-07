@@ -6,17 +6,8 @@
   width: 100%;
   color: aliceblue;
   background: rgb(51, 50, 50);
+  border:none !important;
 }
-
-
-  
-  .input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 5px;
-  }
-  
   .button {
     background-color: blue;
     color: rgb(227, 241, 244);
@@ -39,8 +30,8 @@
     padding: 20px;
     border-radius: 10px;
     color: rgb(232, 227, 227);
-    /* width: 300px; */
     max-width: 100%; /* Ensure it doesn't exceed the parent's width */
+    height: fit-content;
   }
   
   .img {
@@ -50,6 +41,7 @@
     padding-bottom: 70%; /* Aspect ratio (height as a percentage of width) */
     border-radius: 8px;
     overflow: hidden;
+    height: fit-content;
   }
   
   .img img {

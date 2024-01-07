@@ -1,0 +1,31 @@
+.searchContainer{
+width: fit-content;
+}
+.searchInput{
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+    width: 30vw;
+}
+.searchButton{
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+}
+.searchButton,
+.searchInput{
+    background: black;
+    border: 2px solid rgb(82, 82, 82);
+    padding: 0.4rem;
+    color: gray;
+    font-size: 0.8rem;
+}
+.searchInput:focus,
+.searchButton:hover
+{
+    background: rgb(76, 75, 75);
+    color: white;
+}
+@media (max-width:500px){
+    .searchInput{
+        width: 100px;
+    }
+}

@@ -5,6 +5,7 @@ import { useFirebase } from '../../config/FirebaseContext'
 import { Link, useNavigate } from 'react-router-dom'
 import styles from './Navbar.module.css'
 import Search from "../Search/Search";
+import addDocIMg from "../../img/addDoc.png"
 const Navbar = () => {
   const user = useUser();
   const { auth } = useFirebase();
@@ -56,7 +57,7 @@ const Navbar = () => {
 
         <Search/>
         <div className={styles.userMenu}>
-          <button className={styles.button}><Link className={styles.link} to="/register">Register a car</Link></button>
+          <button className={styles.button}><Link className={styles.link} to="/register"><div className={styles.img}><img src={addDocIMg} alt=""></img></div></Link></button>
           <div className={styles.img} onClick={toggleDropdown}>
             <img src={userPhotoURL} alt="" className={styles.img}></img>
             {isDropdownClicked && (

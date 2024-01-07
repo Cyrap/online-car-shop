@@ -25,27 +25,24 @@ const SearchResult = () => {
     }, [model, db]);
     if(searchResults.length > 0){
         return (
-            <>
-        <div>
-        <div>
-        {searchResults.map((car, index) => (
-            <div>
-                  <div key={index}>
-                   <div>
-                   {/* <img loading="lazy" src={car.imageURL} alt=""/> */}
-                   </div>
-                   <p>Model: {car.model}</p>
-                   <p>Company: {car.company}</p>
-                 </div>
-             </div>
-        ))}
-      </div>
-        </div>
-        </>
+            <div className={styles.container}>
+            {searchResults.map((car, index) => (
+              <div key={index} className={styles.div}>
+                <div className={styles.img}>
+                <img loading="lazy" src={car.imageURL} alt=""/>
+                </div>
+                <p>Model: {car.model}</p>
+                <p>Company: {car.company}</p>
+              </div>
+            ))}
+          </div>
     );
     }else{
-        return<div>
-            there is no car known as {model}
+        return<div className={styles.notFound}>
+            <div className={styles.notFoundText}>
+         {model} : Хайлтын илэрц олдсонгүй
+            </div>
+        
         </div>
     }
 };

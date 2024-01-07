@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import styles from "./Search.module.css"
 export default function Search() {
   const [data, setData] = useState("");
   console.log(data);
@@ -15,14 +15,16 @@ export default function Search() {
   };
 
   return (
-    <div>
-
+    <div className={styles.searchContainer}>
     <div>
       <input
+        className={styles.searchInput}
         placeholder="search"
         onChange={(e) => makeSearch(e.target.value)}
         ></input>
-      <button onClick={renderSearchResult}>Search</button>
+      <button
+      className={styles.searchButton}
+      onClick={renderSearchResult}>Search</button>
     </div>
 
     <div>
