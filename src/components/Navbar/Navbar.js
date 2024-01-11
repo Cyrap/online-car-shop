@@ -57,6 +57,7 @@ const Navbar = () => {
 
         <Search/>
         <div className={styles.userMenu}>
+          <button className={styles.button}><Link className={styles.link} to="/myPosts"><div className={styles.img}><img src={addDocIMg} alt=""></img></div></Link></button>
           <button className={styles.button}><Link className={styles.link} to="/register"><div className={styles.img}><img src={addDocIMg} alt=""></img></div></Link></button>
           <div className={styles.img} onClick={toggleDropdown}>
             <img src={userPhotoURL} alt="" className={styles.img}></img>

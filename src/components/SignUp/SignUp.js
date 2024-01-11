@@ -14,8 +14,7 @@ const Auth = () => {
   const signIn = async () => {
     try {
       await createUserWithEmailAndPassword(auth,email, password);
-      navigate("./");
-      alert("navigate")
+      navigate("/");
     } catch (err) {
       console.error(err);
     }
@@ -24,8 +23,7 @@ const Auth = () => {
   const signInWithGoogle = async () => {
     try {
       signInWithPopup(auth, googleProvider);
-      navigate("./");
-      alert("navigate")
+      navigate("/");
     } catch (err) {
       console.error(err);
     }
