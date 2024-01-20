@@ -1,0 +1,21 @@
+.container{
+    background: black;
+    color: gray;
+}
+.listStyle{
+
+}
+.listStyle li{
+    list-style: none;
+}
+.options{
+
+}
+a{
+    text-decoration: none;
+    color: blue;
+}
+.bottom{
+    padding-bottom: 40px;
+    text-align: center;
+}

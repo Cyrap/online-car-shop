@@ -21,7 +21,7 @@ function App() {
           <Navbar />
         <SideBar/>
           <Routes>
-          {/* <Route path="/" element={<div><HomePage /></div>} /> */}
+          <Route path="/" element={<div><HomePage /></div>} />
           <Route path='/searchResult/:model' element={<SearchResult/>}></Route>
             <Route path="/register" element={<CarRegister/>}></Route>
             <Route path="/signIn" element={<SignIn />}></Route>

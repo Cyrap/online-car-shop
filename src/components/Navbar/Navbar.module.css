@@ -23,8 +23,8 @@
     color: rgb(24, 124, 232);
 }
 .img {
-    width: 3rem;
-    height: 3rem;
+    width: 40px;
+    height: 4cap;
     border-radius: 50%;
   }
   
@@ -40,7 +40,7 @@
 
 .dropdownContent {
     position: relative;
-    left: -30px;
+    left: -110px;
     top: 10px;
     background: rgba(215, 215, 226, 0.9);
     border-radius: 5px;
@@ -54,7 +54,11 @@
     background: red;
     color: white;
   }
-  
+.loginButtonContainer{
+    background: rgb(166, 160, 160);
+    width: fit-content;
+}
+
 @media (max-width: 500px) {
     .link{    
         margin: 0;

@@ -11,7 +11,7 @@ const HomePage = () => {
         <img src={image3} className={styles.image3}/>
         <img src={image2} className={styles.image2}/>
         <img src={image1} className={styles.image1}/>
-        <h3 className={styles.title}>Welcome</h3>
+        <h3 className={styles.title}>Тавтай морил</h3>
     </div>
 
     <div className={styles.container}>

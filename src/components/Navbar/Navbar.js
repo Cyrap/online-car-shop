@@ -38,10 +38,18 @@ const Navbar = () => {
 
       <Search/>
 
-    <div>
-    <button className={styles.button}><Link className={styles.link} to="/signUp">Бүртгүүлэх</Link></button>
-    <button className={styles.button}><Link className={styles.link} to="/signIn">Нэвтрэх</Link></button>
-    </div>
+
+    <div className={styles.userMenu}>
+           <div className={styles.img} onClick={toggleDropdown}>
+           <button className={styles.img} onClick={toggleDropdown}>|||</button>
+       {isDropdownClicked && (
+                <div className={styles.dropdownContent}>
+                <button className={styles.button}><Link className={styles.link} to="/signUp">Бүртгүүлэх</Link></button>
+             <button className={styles.button}><Link className={styles.link} to="/signIn">Нэвтрэх</Link></button>
+              </div>
+            )}
+          </div>
+        </div>
     </div>
 
   }else{
@@ -63,7 +71,7 @@ const Navbar = () => {
             <img src={userPhotoURL} alt="" className={styles.img}></img>
             {isDropdownClicked && (
               <div className={styles.dropdownContent} onClick={logout}>
-                Logout
+                <button className={styles.dr}>logout</button>
               </div>
             )}
           </div>
