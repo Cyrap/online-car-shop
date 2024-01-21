@@ -3,6 +3,8 @@
   grid-template-columns: repeat(4,1fr);
   gap: 10px;
   height: inherit;
+  min-height: 100vh;
+  padding-top: 100px;
   width: 100%;
   color: aliceblue;
   background: rgb(51, 50, 50);

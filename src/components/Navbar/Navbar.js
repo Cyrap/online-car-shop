@@ -11,7 +11,7 @@ const Navbar = () => {
   const { auth } = useFirebase();
   const navigate = useNavigate();
   const userPhotoURL = user?.photoURL;
-  const logoPath = process.env.PUBLIC_URL + '/logov1.png';
+  const logoPath = process.env.PUBLIC_URL + '/logov2.png';
   const [isDropdownClicked, setDropDownClicked] = useState(false);
 
   const toggleDropdown = () => {

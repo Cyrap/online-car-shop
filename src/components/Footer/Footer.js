@@ -4,8 +4,8 @@ const Footer = () =>{
 return<div>
     <div className={styles.container}>
         <ul className={styles.listStyle}>
-            <li>FB</li>
-            <li>Github</li>
+            <li>FB:    <a href="">Н.Сугар</a></li>
+            <li>Github:   <a href="https://github.com/Cyrap?tab=overview&from=2024-01-01&to=2024-01-21">Cyrap</a></li>
             <li>Phone : 94232720</li>
         </ul>
         <ul className={styles.options}>
