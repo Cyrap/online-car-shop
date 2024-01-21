@@ -6,20 +6,25 @@ width: fit-content;
     border-top-left-radius: 15px;
     width: 30vw;
 }
-.searchButton{
+.searchButton
+{
     border-bottom-right-radius: 15px;
     border-top-right-radius: 15px;
 }
 .searchButton,
-.searchInput{
+.searchInput,
+.button
+{
     background: black;
     border: 2px solid rgb(82, 82, 82);
     padding: 0.4rem;
     color: gray;
     font-size: 0.8rem;
 }
+
 .searchInput:focus,
-.searchButton:hover
+.searchButton:hover,
+.button:hover
 {
     background: rgb(76, 75, 75);
     color: white;

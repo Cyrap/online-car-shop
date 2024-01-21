@@ -70,8 +70,11 @@ const CarRegister = () => {
         <h3>Авто машин бүртгэх</h3>
         <input className={styles.input} placeholder="Company" type="text" value={newCarCompany} onChange={(e) => setNewCarCompany(e.target.value)} />
         <select className={styles.input} placeholder="Model" value={newCarModel} onChange={handleSelectedChange}>
-          <option value={"Toyota"}>Toyota</option>
-          <option value={"BMW"}>BMW</option>
+          <option value={"Toyota"}>prius</option>
+          <option value={"BMW"}>200</option>
+          <option value={"Benz"}>sonata</option>
+          <option value={"Mercedes"}>mini</option>
+          <option value={""}>jeep</option>
           <option value={"Benz"}>Benz</option>
         </select>
         <input type="color" name="favcolor" value={newCarColor} onChange={(e) => setNewCarColor(e.target.value)} />

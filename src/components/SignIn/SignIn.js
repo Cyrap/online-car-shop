@@ -18,12 +18,14 @@ const SignIn = () => {
         alert("login successfully");
     } catch(err){
         alert(err);
+    }finally{
+
     }
   };
   
   const signInWithGoogle = async () => {
     try {
-      signInWithPopup(auth, googleProvider);
+      await signInWithPopup(auth, googleProvider);
       navigate("/");
     } catch (err) {
       console.error(err);

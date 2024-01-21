@@ -3,13 +3,13 @@
     color: gray;
 }
 .listStyle{
-
+    margin: 0;
 }
 .listStyle li{
     list-style: none;
 }
 .options{
-
+    margin: 0;
 }
 a{
     text-decoration: none;

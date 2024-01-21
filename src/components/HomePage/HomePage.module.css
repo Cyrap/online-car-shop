@@ -1,11 +1,10 @@
 .wrapper{
+    display: block;
     height: 100vh;
-    perspective: 10px;
 }
 .container {
     display: flex;
     flex-direction: row;
-    background: red;
     min-height: 100%;
 }
 .header{
@@ -14,19 +13,8 @@
     align-items: center;
     justify-content: center;
     height: 100%;
-    transform-style: preserve-3d;
-    z-index: -1;
 }
 
-.image3{
-    transform: translateZ(-10px) scale(2);
-}
-.image2{
-    transform: translateZ(-5px) scale(1.5);
-}
-.image1{
-    transform: translateZ(-2px) scale(1.2);
-}
 .image1,
 .image2,
 .image3{
@@ -34,7 +22,6 @@
     height: 100%;
     width: 100%;
     object-fit: cover;
-
 }
 .title{
     color: white;

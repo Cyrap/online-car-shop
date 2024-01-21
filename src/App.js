@@ -12,6 +12,7 @@ import Footer from './components/Footer/Footer';
 import SideBar from './components/SideBar/SideBar';
 import SearchResult from './components/SearchResult/SearchResult';
 import MyPosts from './components/MyPosts/MyPosts';
+import Popup from './components/Popup/Popup';
 // import SvgComponent from './SvgComponent'
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Routes>
           <Route path="/" element={<div><HomePage /></div>} />
           <Route path='/searchResult/:model' element={<SearchResult/>}></Route>
+          <Route path='/Popup/:id' element={<Popup/>}></Route>
             <Route path="/register" element={<CarRegister/>}></Route>
             <Route path="/signIn" element={<SignIn />}></Route>
             <Route path="/signUp" element={<Auth />}></Route>
