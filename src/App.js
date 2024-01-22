@@ -13,6 +13,7 @@ import SideBar from './components/SideBar/SideBar';
 import SearchResult from './components/SearchResult/SearchResult';
 import MyPosts from './components/MyPosts/MyPosts';
 import Popup from './components/Popup/Popup';
+import LikeBtn from './components/LikeBtn/LikeBtn';
 // import SvgComponent from './SvgComponent'
 function App() {
   return (

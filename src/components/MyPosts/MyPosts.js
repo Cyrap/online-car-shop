@@ -4,6 +4,8 @@ import {useUser} from "../../config/UserProvider"
 import {collection, getDocs, query, where ,deleteDoc, doc} from "firebase/firestore";
 import { useFirebase } from "../../config/FirebaseContext";
 import styles from "./MyPosts.module.css"
+import LikeBtn from "../LikeBtn/LikeBtn";
+import Firestore from "firestore";
 const MyPosts = () =>{
     const user = useUser();
     const userId = user?.uid;
@@ -22,12 +24,36 @@ const MyPosts = () =>{
                     ...doc.data(),
                     id: doc.id,
                 }))
-                setPostList(filteredData);
-                console.log(filteredData)
+            
+
+                const postWhitLikes = await Promise.all(
+                  filteredData.map(async ( post) =>{
+                    const postId = post?.id
+                    console.log( postId);
+                    const likeRef = collection(db, "InterestedCars");
+                    const likesQuery = query(likeRef, where("CarId", "==", postId));
+                    console.log(likesQuery)
+                    const likesCollection = await getDocs(likesQuery); // Corrected variable name
+                    
+                    console.log(likesCollection.docs);
+
+
+                    const likesData = likesCollection.docs.map((doc)=>
+                     doc.data());
+                    console.log(likesData)
+                    return {...post, likes: likesData};
+                  })
+                  )
+                  console.log(postWhitLikes)
+                  setPostList(postWhitLikes);
             }catch(err){
                 alert(err)
             }
-        }
+            }
+            
+
+
+
         if(userId){
             getPostList();
         }

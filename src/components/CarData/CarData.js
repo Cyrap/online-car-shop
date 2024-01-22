@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useFirebase } from "../../config/FirebaseContext";
-import { collection, onSnapshot } from "firebase/firestore";
+import { collection, onSnapshot, query, where } from "firebase/firestore";
 import styles from './CarData.module.css'
-import Popup from "../Popup/Popup";
+import LikeBtn from "../LikeBtn/LikeBtn";
 import { useNavigate } from "react-router-dom";
+
 const CarData = () => {
   const { db } = useFirebase();
   const [carList, setCarData] = useState([]);
@@ -11,17 +12,22 @@ const CarData = () => {
   const navigate = useNavigate();
   useEffect(() => {
     const unsubscribe = onSnapshot(carCollectionRef, (querySnapshot) => {
+
+      
       const data = querySnapshot.docs.map((doc) => ({
         ...doc.data(),
         id: doc.id,
       }));
+
+  
+
       console.log("fetching function called")
       setCarData(data);
-
     });
 
     return () => unsubscribe();
   }, []);
+
 
 
   const Popup = (e) =>{
@@ -29,7 +35,7 @@ const CarData = () => {
     console.log(e)
   }
 
-
+  
 
   return (
     <div className={styles.container}>
@@ -40,6 +46,7 @@ const CarData = () => {
           </div>
           <p>Загвар: {car.model}</p>
           <p>Үилдвэр: {car.company}</p>
+          <LikeBtn e={car.id}/>
         </div>
       ))}
     </div>
