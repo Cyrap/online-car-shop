@@ -1,8 +1,8 @@
 import { collection } from "firebase/firestore";
-import { useFirebase } from "../../config/FirebaseContext";
-import { useUser } from "../../config/UserProvider";
+import { useFirebase } from "../../context/FirebaseContext";
+import { useUser } from "../../context/UserProvider";
 import { addDoc } from "firebase/firestore";
-
+import s from "./LikeBtn.module.css"
 const LikeBtn = (e) =>{
     const postId = e.e;
     console.log(postId)
@@ -28,7 +28,7 @@ const LikeBtn = (e) =>{
 
 
     return (
-        <button onClick={Like}>Like</button>
+    <i onClick={Like} class="fa-regular fa-heart fa-2x"></i>
     )
 }
 

@@ -1,8 +1,7 @@
 import React from 'react';
-import './App.css';
-import FirebaseProvider from './config/FirebaseContext';
+import FirebaseProvider from './context/FirebaseContext';
 import Auth from './components/SignUp/SignUp';
-import UserProvider from './config/UserProvider';
+import UserProvider from './context/UserProvider';
 import Navbar from './components/Navbar/Navbar';
 import {BrowserRouter, Routes, Route} from "react-router-dom"
 import SignIn from './components/SignIn/SignIn';

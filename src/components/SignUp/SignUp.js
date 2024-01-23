@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useUser } from "../../config/UserProvider";
+import { useUser } from "../../context/UserProvider";
 import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
-import { useFirebase } from "../../config/FirebaseContext";
+import { useFirebase } from "../../context/FirebaseContext";
 import styles from './SignUp.module.css'
 import { useNavigate } from "react-router-dom";
 const Auth = () => {

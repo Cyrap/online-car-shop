@@ -1,20 +1,20 @@
 import react, { useEffect } from "react"
 import { useState } from "react";
-import {useUser} from "../../config/UserProvider"
+import {useUser} from "../../context/UserProvider"
 import {collection, getDocs, query, where ,deleteDoc, doc} from "firebase/firestore";
-import { useFirebase } from "../../config/FirebaseContext";
+import { useFirebase } from "../../context/FirebaseContext";
 import styles from "./MyPosts.module.css"
 import LikeBtn from "../LikeBtn/LikeBtn";
 import Firestore from "firestore";
 import notFoundUrl from "../../img/notFound.png"
+import useNavigation from "../../hooks/useNavigation";
 const MyPosts = () =>{
     const user = useUser();
     const userId = user?.uid;
     const [postList, setPostList] = useState();
     const {db} = useFirebase();
     const postCollectionRef = collection(db,"Cars");
-
-
+    const { handleNavigation } = useNavigation();
 
     useEffect(()=>{
         const getPostList = async () =>{
@@ -74,7 +74,7 @@ const MyPosts = () =>{
   <div className={styles.container}>
     {postList?.map((car, index) => (
       <div key={index} className={styles.div}>
-        <div className={styles.img}>
+        <div className={styles.img} onClick={()=>handleNavigation(car.id)}>
           {car.imageURL ? 
           <img loading="lazy" src={car.imageURL} alt="" />
           :

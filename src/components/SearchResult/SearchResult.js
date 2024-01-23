@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useFirebase } from "../../config/FirebaseContext";
+import { useFirebase } from "../../context/FirebaseContext";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { useParams } from "react-router-dom";
 import styles from "./SearchResult.module.css"
+import PostContainer from "../PostContainer/PostContainer";
 const SearchResult = () => {
     const { db } = useFirebase();
     const [searchResults, setSearchResults] = useState([]);
@@ -26,13 +27,7 @@ const SearchResult = () => {
         return (
             <div className={styles.container}>
             {searchResults.map((car, index) => (
-              <div key={index} className={styles.div}>
-                <div className={styles.img}>
-                <img loading="lazy" src={car.imageURL} alt=""/>
-                </div>
-                <p>Model: {car.model}</p>
-                <p>Company: {car.company}</p>
-              </div>
+                <PostContainer {...car} key={index}/>
             ))}
           </div>
     );

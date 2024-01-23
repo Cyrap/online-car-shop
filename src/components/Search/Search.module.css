@@ -29,6 +29,14 @@ width: fit-content;
     background: rgb(76, 75, 75);
     color: white;
 }
+.searchInput{
+    border: 2px solid transparent;
+    transition: border-color 1s ease-out;
+}
+.error{
+    border: 1px rgb(182, 0, 214) solid;
+    transition: 1s ease-in-out;
+}
 @media (max-width:500px){
     .searchInput{
         width: 100px;

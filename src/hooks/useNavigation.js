@@ -4,7 +4,11 @@ const useNavigation = () =>{
   const navigate = useNavigate();
 
   const handleNavigation = (path) =>{
-    navigate(`/Popup/${path.id}`);
+    if(path == undefined){
+      alert("path not resived eyet")
+    }else{
+      navigate(`/Popup/${path.id}`);
+    }
   }
 
   return {handleNavigation}

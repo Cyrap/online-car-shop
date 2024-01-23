@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useFirebase } from "../../config/FirebaseContext";
+import { useFirebase } from "../../context/FirebaseContext";
 import { collection, getDocs } from "firebase/firestore";
 import { Link } from "react-router-dom";
 import styles from "./SideBar.module.css";

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useUser } from "../../config/UserProvider";
+import { useUser } from "../../context/UserProvider";
 import { signOut } from "firebase/auth";
-import { useFirebase } from '../../config/FirebaseContext'
+import { useFirebase } from '../../context/FirebaseContext'
 import { Link, useNavigate } from 'react-router-dom'
 import styles from './Navbar.module.css'
 import Search from "../Search/Search";

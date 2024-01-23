@@ -4,7 +4,7 @@ import styles from "./HomePage.module.css";
 import image1 from "../../img/img1.png"
 import image2 from "../../img/img2.png"
 import image3 from "../../img/img3.png"
-import { useUser } from "../../config/UserProvider";
+import { useUser } from "../../context/UserProvider";
 const HomePage = () => {
   const user = useUser();
 

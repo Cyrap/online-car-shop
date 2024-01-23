@@ -1,15 +1,15 @@
 .container {
-  display: grid;
-  grid-template-columns: repeat(4,1fr);
-  gap: 10px;
-  height: inherit;
-  min-height: 100vh;
-  padding: 100px 2vw;
-  width: 100%;
-  color: aliceblue;
-  background: rgb(51, 50, 50);
-  border:none !important;
-}
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 10px;
+    height: inherit;
+    min-height: 100vh;
+    padding-top: 100px;
+    width: 100%;
+    color: aliceblue;
+    background: rgb(51, 50, 50);
+    border:none !important;
+  }
     .button {
       background-color: blue;
       color: rgb(227, 241, 244);
@@ -32,15 +32,15 @@
       padding: 20px;
       border-radius: 10px;
       color: rgb(232, 227, 227);
-      max-width: 100%; /* Ensure it doesn't exceed the parent's width */
-      height: fit-content;
+      max-width: 100%;
+    height: fit-content;
     }
     
     .img {
       position: relative;
       width: 100%;
       height: 0;
-      padding-bottom: 70%; /* Aspect ratio (height as a percentage of width) */
+      padding-bottom: 70%; 
       border-radius: 8px;
       overflow: hidden;
       height: fit-content;
@@ -53,7 +53,11 @@
       object-fit: cover;
     }
     
-  
+    .div:hover{
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+        transition: 100ms ease-in-out;
+        transform: perspective(10px);
+    }
   
   @media (max-width: 1200px) {
     .container {

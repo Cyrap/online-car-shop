@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { collection, addDoc, updateDoc, doc } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { v4 as uuidv4 } from "uuid";
-import { useUser } from "../../config/UserProvider";
-import { useFirebase } from "../../config/FirebaseContext";
+import { useUser } from "../../context/UserProvider";
+import { useFirebase } from "../../context/FirebaseContext";
 import { Timestamp } from "firebase/firestore";
 import styles from './CarRegister.module.css';
 
