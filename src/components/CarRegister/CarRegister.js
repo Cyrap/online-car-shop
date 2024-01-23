@@ -25,14 +25,15 @@ const CarRegister = () => {
     try {
       const madeYearTimestamp = Timestamp.fromDate(new Date(newCarYear));
       const entryYearTimestamp = Timestamp.fromDate(new Date(newCarEntryYear));
-
+      const postDate = new Date();
       const carData = {
         company: newCarCompany,
         model: newCarModel,
         color: newCarColor,
         madeYear: madeYearTimestamp,
         entryYear: entryYearTimestamp,
-        ownerID: user.uid, // Use camelCase for consistency
+        ownerID: user.uid,
+        postDate : postDate
       };
 
       const carRef = await addDoc(collection(db, "Cars"), carData);

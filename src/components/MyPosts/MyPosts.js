@@ -6,6 +6,7 @@ import { useFirebase } from "../../config/FirebaseContext";
 import styles from "./MyPosts.module.css"
 import LikeBtn from "../LikeBtn/LikeBtn";
 import Firestore from "firestore";
+import notFoundUrl from "../../img/notFound.png"
 const MyPosts = () =>{
     const user = useUser();
     const userId = user?.uid;
@@ -29,21 +30,16 @@ const MyPosts = () =>{
                 const postWhitLikes = await Promise.all(
                   filteredData.map(async ( post) =>{
                     const postId = post?.id
-                    console.log( postId);
                     const likeRef = collection(db, "InterestedCars");
-                    const likesQuery = query(likeRef, where("CarId", "==", postId));
-                    console.log(likesQuery)
-                    const likesCollection = await getDocs(likesQuery); // Corrected variable name
-                    
-                    console.log(likesCollection.docs);
-
-
+                    const likesQuery = query(likeRef, where("CarId", "==", "7Z2os1dPBvv11zVEW6oq"));
+                    const likesCollection = await getDocs(likesQuery);
                     const likesData = likesCollection.docs.map((doc)=>
-                     doc.data());
-                    console.log(likesData)
+                    doc.data());
                     return {...post, likes: likesData};
                   })
+
                   )
+
                   console.log(postWhitLikes)
                   setPostList(postWhitLikes);
             }catch(err){
@@ -70,23 +66,36 @@ const MyPosts = () =>{
         }
     }
 
+    postList?.map((e)=>{
+      e.likes.map(e=>{console.log(e.UserId)})
+    })
 
    return (
   <div className={styles.container}>
     {postList?.map((car, index) => (
       <div key={index} className={styles.div}>
         <div className={styles.img}>
+          {car.imageURL ? 
           <img loading="lazy" src={car.imageURL} alt="" />
+          :
+          <img loading="lazy" src={notFoundUrl} alt="" />
+          }
         </div>
-        <p>Model: {car.model}</p>
-        <p>Company: {car.company}</p>
-        <p>Color: {car.color}</p>
+        <p>Загвар: {car.model}</p>
+        <p>Үилдвэр: {car.company}</p>
+        <p>Өнгө: {car.color}</p>
         <p>
-          Entry Year: {car.entryYear?.toDate().toLocaleDateString() || "N/A"}
+            Орж ирсэн он: {car.entryYear?.toDate().toLocaleDateString() || "N/A"}
         </p>
         <p>
-          Made Year: {car.madeYear?.toDate().toLocaleDateString() || "N/A"}
+          Үилдвэрлэсэн он: {car.madeYear?.toDate().toLocaleDateString() || "N/A"}
         </p>
+        <p>
+          Нийтэлсэн хугацаа: {car.postDate?.toDate().toLocaleDateString() || "N/A"}
+        </p>
+        {car.likes.map((e)=>{
+          <p>{e.UserId}</p>
+        })}
         <button onClick={() => deletePost(car.id)}>
           deleteDoc
         </button>

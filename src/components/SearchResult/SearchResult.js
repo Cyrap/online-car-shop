@@ -7,7 +7,6 @@ const SearchResult = () => {
     const { db } = useFirebase();
     const [searchResults, setSearchResults] = useState([]);
     const {model} = useParams();
-    console.log(model);
     useEffect(() => {
         const fetchData = async () => {
             try {
