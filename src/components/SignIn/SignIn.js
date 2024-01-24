@@ -47,7 +47,7 @@ const SignIn = () => {
             onChange={(e) => setPassword(e.target.value)}
             />
           <button className={styles.button} onClick={logIn}>Нэвтрэх</button>
-          <button className={styles.button} onClick={signInWithGoogle}>Google account</button>
+          <button className={styles.button} onClick={signInWithGoogle}><i class="fa-brands fa-google"></i></button>
         </div>
         </div>
     </div>

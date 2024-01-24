@@ -34,7 +34,7 @@ export default function Search() {
           placeholder="search"
           onChange={(e) => makeSearch(e.target.value)}
         ></input>
-        <button className={styles.button}>all</button>
+        {/* <button className={styles.button}>all</button> */}
         <button
           className={styles.searchButton}
           onClick={renderSearchResult}

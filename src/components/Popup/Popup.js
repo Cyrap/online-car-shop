@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { doc, getDoc, deleteDoc } from "firebase/firestore";
 import { useFirebase } from "../../context/FirebaseContext";
 import styles from "./Popup.module.css";
-
+import LikeBtn from "../LikeBtn/LikeBtn";
 const Popup = () => {
     const { id } = useParams();
     const userId = id;
@@ -42,6 +42,9 @@ const Popup = () => {
                         <img loading="lazy" src={car.imageURL} alt="" />
                     </div>
                    <div className={styles.contentInfo}>
+                    <p>
+                    <LikeBtn e={car}/>
+                    </p>
                    <p>Model: {car.model}</p>
                     <p>Company: {car.company}</p>
                     <p>Color: {car.color}</p>

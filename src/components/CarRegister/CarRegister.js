@@ -11,8 +11,8 @@ const CarRegister = () => {
   const user = useUser();
   const { db, storage } = useFirebase();
   const [newCarCompany, setNewCarCompany] = useState("");
-  const [newCarModel, setNewCarModel] = useState("");
-  const [newCarColor, setNewCarColor] = useState("#ff0000"); // Default color value
+  const [newCarModel, setNewCarModel] = useState("Бусад");
+  const [newCarColor, setNewCarColor] = useState("#ff0000");
   const [newCarYear, setNewCarYear] = useState("");
   const [newCarEntryYear, setNewCarEntryYear] = useState("");
   const [fileUpload, setFileUpload] = useState(null);
@@ -46,11 +46,9 @@ const CarRegister = () => {
         await uploadBytes(fileFolderRef, fileUpload);
         const imageURL = await getDownloadURL(fileFolderRef);
 
-        // Update the document with the imageURL
         await updateDoc(doc(db, "Cars", carRef.id), { imageURL });
       }
 
-      // Clear input fields and fileUpload state after submission
       setNewCarCompany("");
       setNewCarModel("");
       setNewCarColor("#ff0000");

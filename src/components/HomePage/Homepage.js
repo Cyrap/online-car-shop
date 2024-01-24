@@ -1,5 +1,6 @@
 import React from "react";
 import CarData from "../CarData/CarData";
+import LatestPost from "../LatestPosts/LatestPosts";
 import styles from "./HomePage.module.css";
 import image1 from "../../img/img1.png"
 import image2 from "../../img/img2.png"
@@ -22,6 +23,7 @@ const HomePage = () => {
     <div className={styles.container}>
         <CarData/>
     </div>
+        {/* <LatestPost/> */}
     </div>
   );
 };

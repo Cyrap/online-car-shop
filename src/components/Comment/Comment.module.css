@@ -1,0 +1,49 @@
+.container{
+    height: 10px;
+    display:  flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container textarea{
+    background: rgb(30, 29, 29);
+    color: white;
+    padding: 30px;
+    border-radius: 5px;
+    height: 80px;
+    width: 30vw;
+}
+
+.container button{
+    background: rgb(35, 63, 148);
+    border: none;
+    color: white;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container button:hover{
+    background: rgb(13, 13, 216);
+    cursor: pointer;
+}
+@media (max-width:600px){
+    .container{
+        justify-content: end;
+        padding-right: 20px;
+    }
+}
+
+@media (max-width:450px) {
+    .container{
+        height: fit-content;
+        justify-content: center;
+    }
+    .container textarea{
+        padding: 2px;
+        width: 60%;
+    }
+}

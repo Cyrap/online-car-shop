@@ -30,7 +30,7 @@ width: fit-content;
     color: white;
 }
 .searchInput{
-    border: 2px solid transparent;
+    border: 2px solid gray transparent;
     transition: border-color 1s ease-out;
 }
 .error{
