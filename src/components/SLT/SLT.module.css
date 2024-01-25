@@ -1,0 +1,18 @@
+.sltcontainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sltcontainer button{
+    background: rgba(100, 100, 100, 0.645);
+    cursor: pointer;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    margin: 0px 20px;
+    font-size: 1.3rem;
+    border: none;
+}
+.sltcontainer button:hover{
+    background: rgb(50, 48, 48);
+}
