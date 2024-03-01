@@ -1,8 +1,9 @@
+import React from "react";
 import { collection } from "firebase/firestore";
 import { useFirebase } from "../../context/FirebaseContext";
 import { useUser } from "../../context/UserProvider";
 import { addDoc } from "firebase/firestore";
-import s from "./LikeBtn.module.css"
+// import s from "./LikeBtn.module.css"
 const LikeBtn = (e) =>{
     const postId = e.e;
     console.log(postId)

@@ -1,3 +1,4 @@
+import React from "react";
 import { addDoc, collection } from "firebase/firestore";
 import { useFirebase } from "../../context/FirebaseContext";
 import { useUser } from "../../context/UserProvider";
@@ -27,7 +28,7 @@ const Comment = ()=>{
 
     return  <div className={styles.container}>
         <textarea placeholder="Сэтгэгдэл үлдээх" onChange={(e)=>setComment(e.target.value)}></textarea>
-        <button onClick={PostComment}><i class="fa-solid fa-paper-plane fa-2x"></i></button>
+        <button onClick={PostComment}><i className="fa-solid fa-paper-plane fa-2x"></i></button>
     </div>
  }
 

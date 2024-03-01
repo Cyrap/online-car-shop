@@ -41,7 +41,7 @@ const Navbar = () => {
 
     <div className={styles.userMenu}>
            <div className={styles.img} onClick={toggleDropdown}>
-           <button className={styles.img} onClick={toggleDropdown}><i class="fa-solid fa-user"></i></button>
+           <button className={styles.img} onClick={toggleDropdown}><i className="fa-solid fa-user"></i></button>
        {isDropdownClicked && (
                 <div className={styles.dropdownContent}>
                 <button className={styles.button}><Link className={styles.link} to="/signUp">Бүртгүүлэх</Link></button>
@@ -65,13 +65,13 @@ const Navbar = () => {
 
         <Search/>
         <div className={styles.userMenu}>
-          <button className={styles.button}><Link className={styles.link} to="/myPosts"><div className={styles.img}><i class="fa-regular fa-folder"></i></div></Link></button>
+          <button className={styles.button}><Link className={styles.link} to="/myPosts"><div className={styles.img}><i className="fa-regular fa-folder"></i></div></Link></button>
           <button className={styles.button}><Link className={styles.link} to="/register"><div className={styles.img}><i className="fas fa-pencil-alt"></i></div></Link></button>
           <div className={styles.img} onClick={toggleDropdown}>
             <img src={userPhotoURL} alt="" className={styles.img}></img>
             {isDropdownClicked && (
               <div className={styles.dropdownContent} onClick={logout}>
-                <button className={styles.logoutBtn}>Гарах <i class="fa-solid fa-right-from-bracket"></i></button>
+                <button className={styles.logoutBtn}>Гарах <i className="fa-solid fa-right-from-bracket"></i></button>
               </div>
             )}
           </div>

@@ -30,6 +30,9 @@
     background: rgb(13, 13, 216);
     cursor: pointer;
 }
+.fa-paper-plane{
+    color: red;
+}
 @media (max-width:600px){
     .container{
         justify-content: end;

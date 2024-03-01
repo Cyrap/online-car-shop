@@ -1,3 +1,4 @@
+import React from "react";
 import LikeBtn from "../LikeBtn/LikeBtn";
 import styles from "./PostContainer.module.css";
 import useNavigation from "../../hooks/useNavigation";

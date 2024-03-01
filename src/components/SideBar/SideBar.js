@@ -65,7 +65,7 @@ const SideBar = () => {
        )}
        {!isSidebarVisible &&  <div className={styles.toggleButton}>
            <div className={styles.buttonContainer} onClick={()=>{toggleButton()}}>
-               <button className={styles.primeButton} onClick={()=>{toggleButton()}}> {isSidebarVisible ? "<" : <i class="fa-solid fa-caret-right"></i>}</button>
+               <button className={styles.primeButton} onClick={()=>{toggleButton()}}> {isSidebarVisible ? "<" : <i className="fa-solid fa-caret-right"></i>}</button>
             </div>
        </div>}
     </div>

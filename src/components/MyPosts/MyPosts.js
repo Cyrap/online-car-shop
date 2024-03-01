@@ -1,3 +1,4 @@
+import React from "react";
 import react, { useEffect } from "react"
 import { useState } from "react";
 import {useUser} from "../../context/UserProvider"
@@ -66,9 +67,9 @@ const MyPosts = () =>{
         }
     }
 
-    postList?.map((e)=>{
-      e.likes.map(e=>{console.log(e.UserId)})
-    })
+    // postList?.map((e)=>{
+    //   e.likes.map(e=>{console.log(e.UserId)})
+    // })
 
    return (
   <div className={styles.container}>
@@ -93,9 +94,9 @@ const MyPosts = () =>{
         <p>
           Нийтэлсэн хугацаа: {car.postDate?.toDate().toLocaleDateString() || "N/A"}
         </p>
-        {car.likes.map((e)=>{
+        {/* {car.likes.map((e)=>{
           <p>{e.UserId}</p>
-        })}
+        })} */}
         <button onClick={() => deletePost(car.id)}>
           deleteDoc
         </button>

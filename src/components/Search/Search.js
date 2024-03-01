@@ -7,7 +7,7 @@ export default function Search() {
   const [inputError, setInputError] = useState(false);
   const navigate = useNavigate();
 
-  if(inputError == true){
+  if(inputError === true){
     setTimeout(() => {
       setInputError(false)
     }, 1500);
